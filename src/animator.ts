@@ -51,7 +51,7 @@ export default class Animator {
         el.style.width = frameSize[0] + "px";
         el.style.height = frameSize[1] + "px";
         el.style.background = "url('" + this._path + "') no-repeat";
-        
+
         return el;
     }
 
@@ -64,15 +64,13 @@ export default class Animator {
         return r;
     }
 
-    preloadSounds (sounds: Array<string>) {
-
-        // for (let i = 0; i < this._data.sounds.length; i++) {
-        //     let snd: string = this._data.sounds[i];
-        //     let uri = sounds[snd];
-        //     if (!uri) continue;
-        //     this._sounds[snd] = new Audio(uri);
-
-        // }
+    preloadSounds(sounds: Array<string>): void {
+        for (let i = 0; i < this._data.sounds.length; i++) {
+            let snd: string = this._data.sounds[i];
+            let uri = sounds[i];
+            if (!uri) continue;
+            this._sounds[snd] = new Audio(uri);
+        }
     }
 
     hasAnimation (name: string) {
