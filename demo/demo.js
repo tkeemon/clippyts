@@ -10,9 +10,6 @@ const ClippyDemo = (function() {
         'At your service',
         'Helloo'
     ]
-    const randPos = () => .2 + Math.random() * .6
-
-    let $el = undefined;
 
     function init() {
         this.$el = document.querySelector('.my-clippy')
