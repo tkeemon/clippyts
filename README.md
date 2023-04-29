@@ -12,6 +12,10 @@ Please be patient for first load. It may take some time as agents are loaded one
 
 ## Usage
 
+### Demo
+
+Run `npm run demo` to view the agent demo page.
+
 
 ### NPM / Webpack
 
