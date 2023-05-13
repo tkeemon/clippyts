@@ -127,7 +127,7 @@ export default class Agent {
                         this._animator.exitAnimation();;
                     }
                     this._el.addEventListener('animationend', endHandler);
-                    this._el.animate({ top: y, left: x }, {
+                    this._el.animate({ top: y + "px", left: x + "px"}, {
                         duration,
                         iterations: 1,
                     });

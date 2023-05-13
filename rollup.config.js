@@ -37,11 +37,12 @@ const agentInputs = getDirectories(agentDir).map(agent => {
 console.log(agentInputs)
 
 module.exports = [{
+    strictDeprecations: true,
     input: {
         index: 'src/index.ts',
         ...agentInputs
     },
-    external: Object.keys(dependencies),
+    external: Object.keys(dependencies || {}),
     plugins: [
         typescript(),
         styles(),
