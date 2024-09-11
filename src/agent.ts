@@ -11,7 +11,7 @@ export interface AgentOptions {
 
 export default class Agent {
     private _queue: Queue;
-    private _el: HTMLElement;
+    private readonly _el: HTMLElement;
     private _animator: Animator;
     private _balloon: Balloon;
     private _hidden: boolean = false;
@@ -39,8 +39,9 @@ export default class Agent {
         let selectorEl = selector ? document.getElementsByClassName(selector)[0] : undefined;
         (selectorEl || document.body).appendChild(this._el);
         
+        const agentSounds: string[] = Object.values(options.agent.soundMp3 as unknown as Array<string>);
 
-        this._animator = new Animator(this._el, agent, []);
+        this._animator = new Animator(this._el, agent, agentSounds);
         this._balloon = new Balloon(this._el);
         this._setupEvents();
     }
@@ -142,7 +143,7 @@ export default class Agent {
 
         // if we're inside an idle animation,
         if (this._isIdleAnimation() && this._idleDfd) {
-            this._idleDfd.promise.finally(() => {
+            this._idleDfd.promise.then(() => {
                 this._playInternal(animation, callback);
             })
         }
