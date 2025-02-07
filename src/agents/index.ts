@@ -21,4 +21,5 @@ export const agents: Record<string, any> = {
     Peedy: () => loadAgent('Peedy'),
     Rocky: () => loadAgent('Rocky'),
     Rover: () => loadAgent('Rover'),
+    Otto: () => loadAgent('Otto'),
 };

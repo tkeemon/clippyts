@@ -1,6 +1,6 @@
 import type Agent from './agent'
 
-export type AgentType = 'Clippy' | 'Bonzi' | 'F1' | 'Genie' | 'Genius' | 'Links' | 'Merlin' | 'Peedy' | 'Rocky' | 'Rover';
+export type AgentType = 'Clippy' | 'Bonzi' | 'F1' | 'Genie' | 'Genius' | 'Links' | 'Merlin' | 'Peedy' | 'Rocky' | 'Rover' | 'Otto';
 export interface AgentConfig {
     overlayCount: number;
     framesize: Array<number>;

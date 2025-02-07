@@ -2,13 +2,16 @@
 import clippy from '../dist/index.js'
 
 const ClippyDemo = (function() {
-    const availableAgents = ['Bonzi', 'Clippy', 'F1', 'Genie', 'Genius', 'Links', 'Merlin', 'Peedy', 'Rocky', 'Rover']
+    const availableAgents = ['Otto']
+    const animationList = ['Standing', 'Looking', 'Boombox', 'Thinking', 'Spa', 'Timing']
+    let agentEventCount = 0
+
     const talks = [
-        'How can i help you?',
-        'Nice day!',
-        'Glad to meet you.',
-        'At your service',
-        'Helloo'
+        'Otterly amazing! You just added your first student—here\'s to many more!',
+        'You\'re making waves! Your first student referral data is in. Keep up the great work!',
+        'Three days in a row? You\'re dedicated! Keep the streak going!',
+        'Took a weekend off? Even otters need to float and relax! Welcome back!',
+        'High-five! You\'ve downloaded 5 reports!'
     ]
 
     function init() {
@@ -16,7 +19,7 @@ const ClippyDemo = (function() {
     }
 
     function nextAgent() {
-        let agentName = availableAgents[Math.floor(Math.random() * (availableAgents.length))]
+        let agentName = availableAgents[0]
         if (!agentName) return;
 
         clippy.load({
@@ -28,19 +31,20 @@ const ClippyDemo = (function() {
 
                 // Speak on click and start
                 const speak = () => {
-                    agent.speak('I am ' + agentName + ', ' + talks[~~(Math.random() * talks.length)])
-                    agent.animate()
+                    agent.play(animationList[agentEventCount % animationList.length])
+                    agent.speak(talks[agentEventCount % talks.length])
+                    agentEventCount++
                 }
                 agent._el.addEventListener('click', () => speak());
                 speak()
 
                 // Animate randomly
-                setInterval(() => {
-                    agent.animate()
-                }, 3000 + (Math.random() * 4000))
+                // setInterval(() => {
+                //     agent.animate()
+                // }, 3000 + (Math.random() * 4000))
             }
-        });
-    } 
+        });  //, undefined, '../assets/agents/');
+    }
     function destroy() {
         this.$el.innerHTML = ''
     }
@@ -58,6 +62,7 @@ window.onload = () => {
     ClippyDemo.init();
     ClippyDemo.nextAgent();
     document.getElementById('next-agent').addEventListener('click', () => {
+        console.log('click');
         ClippyDemo.destroy();
         ClippyDemo.nextAgent();
     });
