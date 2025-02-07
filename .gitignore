@@ -1,7 +1,7 @@
 .idea
 *.iml
 *.log*
-/dist
+#/dist
 node_modules
 .vscode/settings.json
 /dist-tsc
