@@ -19,13 +19,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lizozom/clippyts.git"
+    "url": "git+https://github.com/tkeemon/clippyts.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lizozom/clippyts/issues"
+    "url": "https://github.com/tkeemon/clippyts/issues"
   },
-  "homepage": "https://github.com/lizozom/clippyts#readme",
+  "homepage": "https://github.com/tkeemon/clippyts#readme",
   "devDependencies": {
     "@lopatnov/rollup-plugin-uglify": "^2.1.5",
     "@open-wc/building-rollup": "^2.2.1",
